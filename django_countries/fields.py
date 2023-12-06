@@ -17,9 +17,9 @@ from django_countries.conf import settings
 
 _entry_points: Iterable[Any]
 try:
-    import importlib.metadata
+    import backports.entry_points_selectable
 
-    _entry_points = importlib.metadata.entry_points().get(
+    _entry_points = backports.entry_points_selectable.entry_points().get(
         "django_countries.Country", []
     )
 except ImportError:  # Python <3.8
